@@ -4,4 +4,10 @@
     <string name="scoreteam1">Score</string>
     <string name="scoreteam2">Score</string>
     <string name="team_2">Team 2</string>
+    <string-array name="score_values">
+        <item>Score</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

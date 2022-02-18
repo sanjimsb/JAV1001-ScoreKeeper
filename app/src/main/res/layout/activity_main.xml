@@ -6,6 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Spinner
+        android:id="@+id/score_values"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/minusScore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/selectedTeamName"
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+
+    <TextView
+        android:id="@+id/team2Score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="0 Goal"
+        android:textColorLink="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/switch1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/team1Score"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
     <Button
         android:id="@+id/plusScore"
         android:layout_width="wrap_content"
@@ -16,6 +42,45 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectedTeamName" />
+
+    <Button
+        android:id="@+id/minusScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score -1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/plusScore"
+        app:layout_constraintTop_toBottomOf="@+id/selectedTeamName"
+        app:layout_constraintVertical_bias="0.503" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Team 2"
+        android:textColorLink="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/team2Score"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:text="Switch Teams"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/selectedTeamName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/team1Score" />
 
     <TextView
         android:id="@+id/textView11"
@@ -49,49 +114,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <TextView
-        android:id="@+id/team2Score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="0 Goal"
-        android:textColorLink="#000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/switch1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/team1Score"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="Team 2"
-        android:textColorLink="#000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/team2Score"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:text="Switch Teams"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/selectedTeamName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/team1Score" />
-
-    <TextView
         android:id="@+id/selectedTeamName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,19 +121,9 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/plusScore"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintEnd_toStartOf="@+id/score_values"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switch1" />
-
-    <Button
-        android:id="@+id/minusScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Score -1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/plusScore"
-        app:layout_constraintTop_toBottomOf="@+id/selectedTeamName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
