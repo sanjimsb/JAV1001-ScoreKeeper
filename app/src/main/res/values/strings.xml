@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Java Lab 1</string>
+    <string name="team_1">Team 1</string>
+    <string name="scoreteam1">Score</string>
+    <string name="scoreteam2">Score</string>
+    <string name="team_2">Team 2</string>
+</resources>
