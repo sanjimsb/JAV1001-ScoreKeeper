@@ -70,11 +70,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         value = Integer.parseInt(teamFirstScore.getText().toString().replaceAll("[^0-9]", ""));
                         System.out.println(value + " Goals");
                         value += 1;
-                        teamFirstScore.setText(value + " Goals");
+                        teamFirstScore.setText(value + " Score");
                     } else if(teamName.getText().toString().equals("Team 2")) {
                         value = Integer.parseInt(teamSecondScore.getText().toString().replaceAll("[^0-9]", ""));
                         value += 1;
-                        teamSecondScore.setText(value + " Goals");
+                        teamSecondScore.setText(value + " Score");
                     }
                     break;
             case R.id.minusScore:
@@ -82,12 +82,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     value = Integer.parseInt(teamFirstScore.getText().toString().replaceAll("[^0-9]", ""));
                     value -= 1;
                     value = value < 0 ? 0 : value;
-                    teamFirstScore.setText(value + " Goals");
+                    teamFirstScore.setText(value + " Score");
                 }else if(teamName.getText().toString().equals("Team 2")) {
                     value = Integer.parseInt(teamSecondScore.getText().toString().replaceAll("[^0-9]", ""));
                     value -= 1;
                     value = value < 0 ? 0 : value;
-                    teamSecondScore.setText(value + " Goals");
+                    teamSecondScore.setText(value + " Score");
                 }
                 break;
         }
@@ -102,12 +102,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(teamName.getText().toString().equals("Team 1")) {
             value = Integer.parseInt(teamFirstScore.getText().toString().replaceAll("[^0-9]", ""));
             value += increaseScoreBy;
-            teamFirstScore.setText(value + " Goals");
+            teamFirstScore.setText(value + " Score");
         } else if(teamName.getText().toString().equals("Team 2")) {
             value = Integer.parseInt(teamSecondScore.getText().toString().replaceAll("[^0-9]", ""));
             value += increaseScoreBy;
-            teamSecondScore.setText(value + " Goals");
+            teamSecondScore.setText(value + " Score");
         }
+        getSpinner.setSelection(0);
     }
 
     @Override
