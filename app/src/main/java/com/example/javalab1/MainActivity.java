@@ -1,8 +1,12 @@
 package com.example.javalab1;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,6 +26,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button plusScore;
     Button minusScore;
     Spinner getSpinner;
+    private int scoreValue = 1;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.icon_resources, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.item1) {
+            Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
+            return true;  
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         getSpinner.setAdapter(adapter);
         getSpinner.setOnItemSelectedListener(this);
+
 
 
 
@@ -69,23 +91,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         System.out.println("test");
                         value = Integer.parseInt(teamFirstScore.getText().toString().replaceAll("[^0-9]", ""));
                         System.out.println(value + " Goals");
-                        value += 1;
+                        value += this.scoreValue;
                         teamFirstScore.setText(value + " Score");
                     } else if(teamName.getText().toString().equals("Team 2")) {
                         value = Integer.parseInt(teamSecondScore.getText().toString().replaceAll("[^0-9]", ""));
-                        value += 1;
+                        value += this.scoreValue;
                         teamSecondScore.setText(value + " Score");
                     }
                     break;
             case R.id.minusScore:
                 if(teamName.getText().toString().equals("Team 1")) {
                     value = Integer.parseInt(teamFirstScore.getText().toString().replaceAll("[^0-9]", ""));
-                    value -= 1;
+                    value -= this.scoreValue;
                     value = value < 0 ? 0 : value;
                     teamFirstScore.setText(value + " Score");
                 }else if(teamName.getText().toString().equals("Team 2")) {
                     value = Integer.parseInt(teamSecondScore.getText().toString().replaceAll("[^0-9]", ""));
-                    value -= 1;
+                    value -= this.scoreValue;
                     value = value < 0 ? 0 : value;
                     teamSecondScore.setText(value + " Score");
                 }
@@ -97,18 +119,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String getScore = adapterView.getItemAtPosition(i).toString();
         if(getScore.equals("Score")) return;
-        int value = 0;
         int increaseScoreBy = Integer.parseInt(getScore);
-        if(teamName.getText().toString().equals("Team 1")) {
-            value = Integer.parseInt(teamFirstScore.getText().toString().replaceAll("[^0-9]", ""));
-            value += increaseScoreBy;
-            teamFirstScore.setText(value + " Score");
-        } else if(teamName.getText().toString().equals("Team 2")) {
-            value = Integer.parseInt(teamSecondScore.getText().toString().replaceAll("[^0-9]", ""));
-            value += increaseScoreBy;
-            teamSecondScore.setText(value + " Score");
-        }
-        getSpinner.setSelection(0);
+        Integer scoreValue = new Integer(increaseScoreBy);
+        this.scoreValue = increaseScoreBy;
+        this.plusScore.setText("Score +" + scoreValue.toString() );
+        this.minusScore.setText("Score -" + scoreValue.toString() );
     }
 
     @Override
