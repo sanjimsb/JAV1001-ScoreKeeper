@@ -2,6 +2,8 @@ package com.example.javalab1;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button minusScore;
     Spinner getSpinner;
     private int scoreValue = 1;
+    private String theme = "day";
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,11 +40,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.item1) {
-            Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
-            return true;  
+        switch (item.getItemId()) {
+            case R.id.item1:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                return true;
+            case R.id.item2:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
